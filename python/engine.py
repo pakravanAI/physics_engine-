@@ -89,6 +89,15 @@ class mathmatics():
 
             return out
 
+        def direction(origin, target):
+
+            x = target[0] - origin[0]
+            y = target[1] - origin[1]
+
+            magnitude = mathmatics.pythagorean_theorem(x, y)
+
+            return [x / magnitude, y / magnitude] 
+
 
 class gravity():
 
@@ -139,12 +148,12 @@ class general_force():
 
     def Fx(F , angle):
 
-        return sin(angle) * F
+        return cos(angle) * F
 
 
     def Fy(F , angle):
     
-        return cos(angle) * F 
+        return sin(angle) * F 
 
     def force_addition(vec_list):
 
@@ -178,57 +187,72 @@ class movement():
 #temporary test code from now on
 
 tick = 0.1
-pos_object = [100 ,-100]
-pos_planet = [0 ,0]
+
+pos_object = [100, -100]
+pos_planet = [0, 0]
+
 mass_object = 1
-mass_planet = 10000
+mass_planet = 10 * (10 ** 12)
+
 v0 = 0
 
-d_vec = mathmatics.vector.minus(pos_object ,pos_planet)
 
-d = mathmatics.pythagorean_theorem(d_vec[0] ,d_vec[1])
-F = gravity.force(d ,mass_object ,mass_planet)
-
-theta = mathmatics.angle(d_vec[0] ,d_vec[1])
-Fx = general_force.Fx(F ,theta)
-Fy = general_force.Fy(F ,theta)
-
+d_vec = mathmatics.vector.minus(pos_object, pos_planet)
+d = mathmatics.pythagorean_theorem(d_vec[0], d_vec[1])
 
 time = 0
 
+vx = 0
+vy = 0
+
 while True:
 
-    ax = movement.acceleration(Fx , mass_object)
-    ay = movement.acceleration(Fy ,mass_object)
+    F = gravity.force(d, mass_object, mass_planet)
 
-    vx = movement.vlocity(ax ,time ,v0)
-    vy = movement.vlocity(ay ,time ,v0)
 
-    v_vec = movement.V_vec(vx ,vy)
+    direction = mathmatics.vector.direction(pos_object, pos_planet)
 
-    Cm = gravity.coefficient_M(d_vec)
 
-    v_vec = mathmatics.vector.vec_times_mat(v_vec ,Cm)
-    v_vec = mathmatics.vector.vec_times_R(v_vec ,tick)
+    F_vec = mathmatics.vector.vec_times_R(direction, F)
 
-    pos_object = mathmatics.vector.add(pos_object ,v_vec)
 
-    d_vec = mathmatics.vector.minus(pos_object ,pos_planet)
+    a_vec = mathmatics.vector.vec_times_R(
+        F_vec,
+        1 / mass_object
+    )
 
-    d = mathmatics.pythagorean_theorem(d_vec[0] ,d_vec[1])
-    F = gravity.force(d ,mass_object ,mass_planet)
 
-    theta = mathmatics.angle(d_vec[0] ,d_vec[1])
-    Fx = general_force.Fx(F ,theta)
-    Fy = general_force.Fy(F ,theta)
+    vx = vx + a_vec[0] * tick
+    vy = vy + a_vec[1] * tick
 
-    print(d , "," , end="")
 
-    if d < 50:
+    v_vec = movement.V_vec(vx, vy)
+
+
+    pos_object_former = pos_object.copy()
+
+
+    v_vec = mathmatics.vector.vec_times_R(v_vec, tick)
+
+    pos_object = mathmatics.vector.add(pos_object, v_vec)
+
+
+    d_vec = mathmatics.vector.minus(pos_object, pos_planet)
+
+    d = mathmatics.pythagorean_theorem(
+        d_vec[0],
+        d_vec[1]
+    )
+
+    print(pos_object)
+
+
+    if d < 5:
+        print("sim sucsses")
         break
-
-    
 
     time = time + tick
 
-print(time)
+print("fall time" ,time)
+
+
