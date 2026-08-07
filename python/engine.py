@@ -2,7 +2,7 @@ from math import sin , cos , atan2 , sqrt
 
 G = 6.67430 * (10 ** -11)
 pi = 3.1415926535
-
+e = 2.71828
 
 class mathmatics():
 
@@ -122,6 +122,7 @@ class gravity():
 
             Cn ,Cm = 1 ,1
 
+        
         coefficient_M = [Cn ,Cm]
 
         return coefficient_M
