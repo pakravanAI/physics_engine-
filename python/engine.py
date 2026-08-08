@@ -91,8 +91,8 @@ class mathmatics():
 
         def direction(origin, target):
 
-            x = target[0] - origin[0]
-            y = target[1] - origin[1]
+            x = (target[0] - origin[0])# * -1
+            y = (target[1] - origin[1]) #* -1
 
             magnitude = mathmatics.pythagorean_theorem(x, y)
 
@@ -184,6 +184,11 @@ class movement():
         return [vx , vy]
 
 
+    def Momentum(m ,v):
+
+        return m * v
+
+
 #temporary test code from now on
 
 tick = 0.1
@@ -194,9 +199,11 @@ pos_planet = [0, 0]
 mass_object = 1
 mass_planet = 10 * (10 ** 12)
 
+thurus_on = [10 ,10]
+
 v0 = 0
 
-
+# Initial distance
 d_vec = mathmatics.vector.minus(pos_object, pos_planet)
 d = mathmatics.pythagorean_theorem(d_vec[0], d_vec[1])
 
@@ -205,38 +212,43 @@ time = 0
 vx = 0
 vy = 0
 
+
+posX = []
+posY = []
+
 while True:
 
+    # Force magnitude
     F = gravity.force(d, mass_object, mass_planet)
 
-
+    # Direction from object -> planet
     direction = mathmatics.vector.direction(pos_object, pos_planet)
 
-
+    # Force vector
     F_vec = mathmatics.vector.vec_times_R(direction, F)
 
-
+    # Acceleration vector
     a_vec = mathmatics.vector.vec_times_R(
         F_vec,
         1 / mass_object
     )
 
-
+    # Update velocity
     vx = vx + a_vec[0] * tick
     vy = vy + a_vec[1] * tick
 
-
+    # Velocity vector
     v_vec = movement.V_vec(vx, vy)
 
-
+    # Save old position
     pos_object_former = pos_object.copy()
 
-
+    # Move object
     v_vec = mathmatics.vector.vec_times_R(v_vec, tick)
 
-    pos_object = mathmatics.vector.add(pos_object, v_vec)
+    pos_object = mathmatics.vector.add(mathmatics.vector.add(pos_object, v_vec),thurus_on)
 
-
+    # Recalculate distance
     d_vec = mathmatics.vector.minus(pos_object, pos_planet)
 
     d = mathmatics.pythagorean_theorem(
@@ -244,15 +256,18 @@ while True:
         d_vec[1]
     )
 
-    print(pos_object)
+    print( "simdata:","pos object:",pos_object , "," ,"distance:" , d ,",", "vlocity" , vx + vy , "," , "acalrtion:" , a_vec[0] + a_vec[1], "," , "time:" , time )
 
-
-    if d < 5:
-        print("sim sucsses")
+    if (pos_object[0]<10 and pos_object[0]>-10) and (pos_object[1]<10 and pos_object[1]>-10):
+        print("we fucking crashed")
         break
+
+    for i in range(100000):
+        posX.append(pos_object[0])
+        posY.append(pos_object[1])
 
     time = time + tick
 
-print("fall time" ,time)
-
-
+print(time)
+print(posX)
+print(posY)
