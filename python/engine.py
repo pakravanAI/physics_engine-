@@ -189,3 +189,11 @@ class movement():
         return m * v
 
 
+class object_colistion():
+
+    def sqr(r ,a ,b ,xpos ,ypos):
+
+        if xpos - (r / 2) < a and a < xpos - (r / 2):
+            if (ypos - r) < b and b < (ypos + r):
+
+                return True 
