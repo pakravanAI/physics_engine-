@@ -205,4 +205,11 @@ class object_colistion():
     
                 return True
 
+    def circle(r, a, b, xpos, ypos):
+
+        d = ((a - xpos) ** 2 + (b - ypos) ** 2) ** 0.5
+
+        if d < r:
+            return True
+
 
