@@ -197,3 +197,12 @@ class object_colistion():
             if (ypos - r) < b and b < (ypos + r):
 
                 return True 
+
+    def rect(r1 ,r2 ,a ,b ,xpos ,ypos):
+    
+        if xpos - (r1 / 2) < a and a < xpos - (r1 / 2):
+            if (ypos - r2) < b and b < (ypos + r2):
+    
+                return True
+
+
