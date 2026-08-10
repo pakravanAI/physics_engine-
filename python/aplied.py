@@ -1,8 +1,9 @@
 from engine import mathmatics ,movement ,gravity ,general_force
+import pathfinder
 
 tick = 0.1
 
-pos_object = [100, 100]
+pos_object = [126, -100]
 pos_planet = [0, 0]
 
 mass_object = 1
@@ -63,10 +64,10 @@ while True:
 
     d = mathmatics.pythagorean_theorem(d_vec[0] ,d_vec[1])
 
-    print( "simdata:","pos object:",pos_object , "," ,"distance:" , d ,",", "vlocity" , vx + vy , "," , "acalrtion:" , a_vec[0] + a_vec[1], "," , "time:" , time )
+    #print( "simdata:","pos object:",pos_object , "," ,"distance:" , d ,",", "vlocity" , vx + vy , "," , "acalrtion:" , a_vec[0] + a_vec[1], "," , "time:" , time )
 
     if (pos_object[0]<10 and pos_object[0]>-10) and (pos_object[1]<10 and pos_object[1]>-10):
-        print("we fucking crashed")
+        print("end of sim")
         break
 
     
@@ -80,6 +81,5 @@ while True:
     time = time + tick
 
 print(time)
-print(posX)
-print(posY)
-print(dlst)
+
+pathfinder.plotpath(posX ,posY)
