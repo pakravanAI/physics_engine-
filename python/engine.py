@@ -194,17 +194,20 @@ class object_colistion():
     def sqr(r ,a ,b ,xpos ,ypos):
 
         if xpos - (r / 2) < a and a < xpos - (r / 2):
-            if (ypos - r) < b and b < (ypos + r):
+            if (ypos - (r / 2)) < b and b < (ypos + (r / 2)):
 
                 return True 
 
+
     def rect(r1 ,r2 ,a ,b ,xpos ,ypos):
     
-        if xpos - (r1 / 2) < a and a < xpos - (r1 / 2):
-            if (ypos - r2) < b and b < (ypos + r2):
+            if xpos - (r1 / 2) < a and a < xpos - (r1 / 2):
+                if (ypos - (r2 / 2)) < b and b < (ypos + (r2 / 2)):
     
-                return True
+                    return True 
 
+
+    
     def circle(r, a, b, xpos, ypos):
 
         d = ((a - xpos) ** 2 + (b - ypos) ** 2) ** 0.5
