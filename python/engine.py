@@ -196,37 +196,113 @@ class movement():#ah clasic movement simple and elgent usde to  conver energies 
 
 class object_colistion():#object coltion used to detect movement
 
-    def sqr(r ,a ,b ,xpos ,ypos):#a squear even a baby knows what that is
+    def sqr(r, a, b, xpos, ypos, angle):
 
-        if xpos - (r / 2) < a and a < xpos - (r / 2):
-            if (ypos - (r / 2)) < b and b < (ypos + (r / 2)):
+        # Convert degrees to radians
+        angle = math.radians(angle)
 
-                return True 
+        # Move point relative to center of mass
+        x = a - xpos
+        y = b - ypos
+
+        # Rotate point backwards
+        rotated_x = x * math.cos(angle) + y * math.sin(angle)
+        rotated_y = -x * math.sin(angle) + y * math.cos(angle)
+
+        # Check normal square collision
+        if -r / 2 < rotated_x < r / 2:
+            if -r / 2 < rotated_y < r / 2:
+                return True
+
+        return False
 
 
-    def rect(r1 ,r2 ,a ,b ,xpos ,ypos):#i asked my 6 year old cusin what a rectangle is he gave a rhight awnser if you dont know what that is you should reconsider your life choises
-    
-            if xpos - (r1 / 2) < a and a < xpos - (r1 / 2):
-                if (ypos - (r2 / 2)) < b and b < (ypos + (r2 / 2)):
-    
-                    return True 
+    def rect(r1, r2, a, b, xpos, ypos, angle):
+
+        # Convert degrees to radians
+        angle = math.radians(angle)
+
+        # Move point relative to center of mass
+        x = a - xpos
+        y = b - ypos
+
+        # Rotate point backwards
+        rotated_x = x * math.cos(angle) + y * math.sin(angle)
+        rotated_y = -x * math.sin(angle) + y * math.cos(angle)
+
+        # Check normal rectangle collision
+        if -r1 / 2 < rotated_x < r1 / 2:
+            if -r2 / 2 < rotated_y < r2 / 2:
+                return True
+
+        return False
 
 
-    
-    def circle(r, a, b, xpos, ypos):#oh look my favrte shape
+    def circle(r, a, b, xpos, ypos):
+
         d = ((a - xpos) ** 2 + (b - ypos) ** 2) ** 0.5
 
         if d < r:
             return True
 
+        return False
 
-    def check_colition(shape1_state ,shape2_state):#rely dumb code i will fix this when i get somewere which has a reletive speed of 0 with earth
+    
 
-        if (shape1_state == True) and (shape2_state == True):
-            return True
 
-        elif ((shape1_state == False) and (shape2_state == True)) or ((shape1_state == True) and (shape2_state == False)):
-            return False
 
-        else:
-            return False
+    class rotate_by_force():
+
+        def get_side_by_pos(h, w, Fpos, pos):
+            """
+            Returns the side of the rectangle closest to Fpos.
+
+            Returns:
+                1 = top
+                2 = right
+                3 = bottom
+                4 = left
+            """
+
+            x, y = Fpos
+            center_x, center_y = pos
+
+            top = center_y + h / 2
+            bottom = center_y - h / 2
+            right = center_x + w / 2
+            left = center_x - w / 2
+
+            # Distance from the force position to each side
+            distance_top = abs(y - top)
+            distance_right = abs(x - right)
+            distance_bottom = abs(y - bottom)
+            distance_left = abs(x - left)
+
+            distances = [
+                distance_top,
+                distance_right,
+                distance_bottom,
+                distance_left
+            ]
+
+            return distances.index(min(distances)) + 1
+
+
+        def force_rotate(mass ,F_vec ,angle ,side ,pos ,w ,h):
+
+            F = F_vec[0] + F_vec[1]
+
+            theta = mathmatics.abs(mathmatics.angle(F_vec) - angle)
+
+            if side == 'w':
+
+               r = mathmatics.abs(pos[0] - F_vec[0])
+               return (r * 12 * (F_vec[0] + F_vec[1]) * theta) / (mass * w)
+
+            if side == 'h':
+
+               r = mathmatics.abs(pos[1] - F_vec[1])
+               return (r * 12 * (F_vec[0] + F_vec[1]) * theta) / (mass * h)
+            
+
+            
