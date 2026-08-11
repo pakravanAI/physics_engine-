@@ -3,13 +3,19 @@ import pathfinder
 
 tick = 0.1
 
-pos_object = [126, -100]
+xpos = int(input('xpos'))
+ypos = int(input('ypos'))
+thrustx = int(input('thrust x'))
+thrusty = int(input('thrust y'))
+
+
+pos_object = [xpos ,ypos]#x ,y
 pos_planet = [0, 0]
 
 mass_object = 1
 mass_planet = 10 * (10 ** 12)
 
-thurus_on = [0 ,0]
+thurus_on = mathmatics.vector.vec_times_R([thrustx ,thrusty] ,tick)
 
 v0 = 0
 
@@ -28,6 +34,22 @@ posY = []
 dlst = []
 
 while True:
+
+    '''f time < 10:
+
+        Ft = 50
+        thetat = 0
+
+        ftx = general_force.Fx(Ft ,thetat)
+        fty = general_force.Fy(Ft ,thetat)
+
+        atx = movement.acceleration(ftx ,mass_object)
+        aty = movement.acceleration(fty ,mass_object)
+
+        vtx = movement.vlocity(atx , time , 0)
+        vty = movement.vlocity(aty , time , 0)'''
+
+        
 
     # Force magnitude
     F = gravity.force(d, mass_object, mass_planet)
@@ -81,5 +103,8 @@ while True:
     time = time + tick
 
 print(time)
+print(posX)
+print('-----')
+print(posY)
 
 pathfinder.plotpath(posX ,posY)
