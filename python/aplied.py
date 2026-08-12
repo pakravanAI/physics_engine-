@@ -20,7 +20,7 @@ thurus_on = mathmatics.vector.vec_times_R([thrustx ,thrusty] ,tick)
 v0 = 0
 
 # Initial distance
-d_vec = mathmatics.vector.minus(pos_object, pos_planet)
+d_vec = mathmatics.vector.minus(pos_object, pos_planet)#i am not a human i am a timelord i am the doctor
 d = mathmatics.pythagorean_theorem(d_vec[0], d_vec[1])
 
 time = 0
