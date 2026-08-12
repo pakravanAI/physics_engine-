@@ -142,6 +142,12 @@ class gravity():#gravity class may go to another file called forces
 
         return coefficient_M
 
+    def weight(g ,m):
+        return g * m
+
+    def g(m ,r):
+
+        return m / (r ^ 2)
 
 
 class general_force():#genral force calcultor
