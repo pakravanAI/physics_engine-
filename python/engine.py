@@ -208,7 +208,7 @@ class object_colistion():#object coltion used to detect movement
 
         # Rotate point backwards
         rotated_x = x * math.cos(angle) + y * math.sin(angle)
-        rotated_y = -x * math.sin(angle) + y * math.cos(angle)
+        rotated_y = -x * math.sin(angle) + y * math.cos(angle)# i think i might want to get a GF
 
         # Check normal square collision
         if -r / 2 < rotated_x < r / 2:
