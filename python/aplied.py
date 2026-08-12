@@ -1,4 +1,4 @@
-from engine import mathmatics ,movement ,gravity ,general_force#i am going crazy no code for today 18:24 aug 12 2026
+from engine import mathmatics ,movement ,gravity ,general_force
 import pathfinder
 
 tick = 0.1
@@ -20,7 +20,7 @@ thurus_on = mathmatics.vector.vec_times_R([thrustx ,thrusty] ,tick)
 v0 = 0
 
 # Initial distance
-d_vec = mathmatics.vector.minus(pos_object, pos_planet)#i am not a human i am a timelord i am the doctor
+d_vec = mathmatics.vector.minus(pos_object, pos_planet)
 d = mathmatics.pythagorean_theorem(d_vec[0], d_vec[1])
 
 time = 0
@@ -50,12 +50,14 @@ while True:
         vty = movement.vlocity(aty , time , 0)'''
 
         
+    g = gravity.g(mass_planet ,d)
+
 
     # Force magnitude
-    F = gravity.force(d, mass_object, mass_planet)
+    F = gravity.weight(g ,mass_object)
 
     # Direction from object -> planet
-    direction = mathmatics.vector.direction(pos_object, pos_planet)#help me
+    direction = mathmatics.vector.direction(pos_object, pos_planet)
 
     # Force vector
     F_vec = mathmatics.vector.vec_times_R(direction, F)
@@ -107,4 +109,6 @@ print(posX)
 print('-----')
 print(posY)
 
-pathfinder.plotpath(posX ,posY)#here you are you pthatic nerd looking at my perfect engine wondring how it works but you cant you cant becues it is over your brain power
+pathfinder.make_plot()
+
+pathfinder.plotpath(posX ,posY)
