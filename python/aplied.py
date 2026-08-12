@@ -55,7 +55,7 @@ while True:
     F = gravity.force(d, mass_object, mass_planet)
 
     # Direction from object -> planet
-    direction = mathmatics.vector.direction(pos_object, pos_planet)
+    direction = mathmatics.vector.direction(pos_object, pos_planet)#help me
 
     # Force vector
     F_vec = mathmatics.vector.vec_times_R(direction, F)
