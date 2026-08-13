@@ -7,6 +7,7 @@ y = [60.4996835696137, 60.99905051740138, 61.49810067775566, 61.99683391043268, 
 
 #mars rover go drrrrrrrrrrrrrrr
 def make_plot():
+    global plot__ 
     plot__ = plt.subplots()
 
 def add_circle(pos ,r):
