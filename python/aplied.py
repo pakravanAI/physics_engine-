@@ -68,7 +68,43 @@ while True:
         1 / mass_object
     )
 
-    # Update velocity
+    # Update velocityfrom engine import mathmatics ,movement ,gravity ,general_force
+import pathfinder
+
+tick = 0.1
+
+xpos = int(input('xpos'))
+ypos = int(input('ypos'))
+thrustx = int(input('thrust x'))
+thrusty = int(input('thrust y'))
+
+
+pos_object = [xpos ,ypos]#x ,y
+pos_planet = [0, 0]
+
+mass_object = 1
+mass_planet = 10 * (10 ** 12)
+
+thurus_on = mathmatics.vector.vec_times_R([thrustx ,thrusty] ,tick)
+
+v0 = 0
+
+# Initial distance
+d_vec = mathmatics.vector.minus(pos_object, pos_planet)
+d = mathmatics.pythagorean_theorem(d_vec[0], d_vec[1])
+
+time = 0
+
+vx = 0
+vy = 0
+
+
+posX = []
+posY = []
+dlst = []
+
+while True:
+
     vx = vx + a_vec[0] * tick
     vy = vy + a_vec[1] * tick
 
@@ -113,3 +149,5 @@ print(posY)
 pathfinder.make_plot()
 
 pathfinder.plotpath(posX ,posY)
+
+pathfinder.__show__()
