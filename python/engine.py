@@ -147,7 +147,7 @@ class gravity():#gravity class may go to another file called forces
 
     def g(m ,r):
 
-        return m / (r ^ 2)
+        return m / (r ^ 2.0 )
 
 
 class general_force():#genral force calcultor
