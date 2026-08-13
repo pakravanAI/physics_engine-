@@ -98,6 +98,7 @@ while True:
     posX.append(pos_object[0])
     posY.append(pos_object[1])
     dlst.append(d)
+    print("is working")
 
     if time > 100:
         break
