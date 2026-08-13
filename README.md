@@ -8,4 +8,4 @@ python protothyping is splitied to two sectors of engine and aplied code
 engine it self is splited to sectors of gravity ,genral force ,movement and mathmatics
 
 
-requirements: computer or pen and paper ,matplotlib ,numpy ,python
+requirements: computer or pen and paper ,matplotlib ,python
