@@ -1,7 +1,6 @@
 ''' hello i hpe you have a good time with my (or bad i dont care)
 just do a deep dive in the functions down bellow if yuo want to build you own
-sim with these tools we havw math vecs forces ect
-i hate evryone who hates this''' 
+sim with these tools we havw math vecs forces ect ''' 
 from math import sin , cos , atan2 , sqrt
 
 #daclering the constants
@@ -147,7 +146,8 @@ class gravity():#gravity class may go to another file called forces
 
     def g(m ,r):
 
-        return m / (r ** 2.0 )
+        return m / (r ** 2.0)
+
 
 
 class general_force():#genral force calcultor
@@ -214,7 +214,7 @@ class object_colistion():#object coltion used to detect movement
 
         # Rotate point backwards
         rotated_x = x * math.cos(angle) + y * math.sin(angle)
-        rotated_y = -x * math.sin(angle) + y * math.cos(angle)# i think i might want to get a GF
+        rotated_y = -x * math.sin(angle) + y * math.cos(angle)
 
         # Check normal square collision
         if -r / 2 < rotated_x < r / 2:
