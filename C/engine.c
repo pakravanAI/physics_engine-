@@ -41,3 +41,9 @@ int distance(float x1 ,float x2 ,float y1 ,float y2){
     return pythagorean_theorem(distancex ,distancey)
 }
 
+int rads_to_deggres(float theta){
+    return (theta / pi) * 180
+}
+
+
+
