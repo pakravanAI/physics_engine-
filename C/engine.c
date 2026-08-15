@@ -4,9 +4,9 @@
 #include <stdio.h>
 #include <math.h>
 
-float G = 6.67430 * (10 ** -11)// gravetetional constant
-float pi = 3.1415926535// the cirdumfrence of a circle divided by its radias
-float e = 2.71828// eulrs number
+float G = 6.67430 * (10 ** -11);// gravetetional constant
+float pi = 3.1415926535;// the cirdumfrence of a circle divided by its radias
+float e = 2.71828;// eulrs number
 
 
 
@@ -38,22 +38,22 @@ int distance(float x1 ,float x2 ,float y1 ,float y2){
     distancex = x1 - x2;
     distancey = y1 - y2;
 
-    return pythagorean_theorem(distancex ,distancey)
+    return pythagorean_theorem(distancex ,distancey);
 }
 
 int rads_to_deggres(float theta){
-    return (theta / pi) * 180
+    return (theta / pi) * 180;
 }
 
 
 int deggres_to_rads(float theta){
-    return (theta / 180) * pi
+    return (theta / 180) * pi;
 }
 
 
 int angle(float x ,float y){
 
-    return rads_to_deggres(atan2(y ,x))
+    return rads_to_deggres(atan2(y ,x));
 }
 
 
