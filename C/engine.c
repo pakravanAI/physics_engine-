@@ -5,7 +5,7 @@
 #include <math.h>
 
 
-//    double abs;
+
 //    double pythagorean_theorem;
 //    double slope;
 //    double distance;
