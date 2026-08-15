@@ -46,4 +46,8 @@ int rads_to_deggres(float theta){
 }
 
 
+int deggres_to_rads(float theta){
+    return (theta / 180) * pi
+}
+
 
