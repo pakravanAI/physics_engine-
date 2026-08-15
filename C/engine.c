@@ -51,3 +51,9 @@ int deggres_to_rads(float theta){
 }
 
 
+int angle(float x ,float y){
+
+    return rads_to_deggres(atan2(y ,x))
+}
+
+
