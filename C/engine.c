@@ -4,7 +4,9 @@
 #include <stdio.h>
 #include <math.h>
 
-
+float G = 6.67430 * (10 ** -11)// gravetetional constant
+float pi = 3.1415926535// the cirdumfrence of a circle divided by its radias
+float e = 2.71828// eulrs number
 
 
 
