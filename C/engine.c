@@ -7,7 +7,7 @@
 
 
 
-//    double slope;
+
 //    double distance;
 //    double rads_to_deggres;
 //    double deggres_to_rads;
