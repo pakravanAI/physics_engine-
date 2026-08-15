@@ -6,7 +6,7 @@
 
 
 
-//    double pythagorean_theorem;
+
 //    double slope;
 //    double distance;
 //    double rads_to_deggres;
