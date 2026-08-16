@@ -168,6 +168,10 @@ int acceleration(float F ,float m){
 
 
 
+int Momentum(float m ,float v){
+    return m * v;
+}
+
 
 
 
