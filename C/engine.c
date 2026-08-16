@@ -162,4 +162,12 @@ int vlocity(float a ,float t ,float v0){
 }
 
 
+int acceleration(float F ,float m){
+    return F / m;
+}
+
+
+
+
+
 
