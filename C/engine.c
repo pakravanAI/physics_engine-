@@ -149,3 +149,7 @@ int vector_force(int vec[2]){
 int Xforce(float F ,float theta){
     return cos(deggres_to_rads(theta)) * F;
 }
+
+int Yforce(float F ,float theta){
+    return sin(deggres_to_rads(theta)) * F;
+}
