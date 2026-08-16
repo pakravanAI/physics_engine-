@@ -153,3 +153,13 @@ int Xforce(float F ,float theta){
 int Yforce(float F ,float theta){
     return sin(deggres_to_rads(theta)) * F;
 }
+
+
+//movement
+
+int vlocity(float a ,float t ,float v0){
+    return (a * t) + v0; 
+}
+
+
+
