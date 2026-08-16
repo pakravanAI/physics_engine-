@@ -140,3 +140,8 @@ int  gravity_g(m ,r){
     return m / (r * r);
 }
 
+// general force
+int vector_force(int vec[2]){
+    return abs(vec[0]) + abs(vec[1]);
+}
+
