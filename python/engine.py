@@ -113,34 +113,6 @@ class gravity():#gravity class may go to another file called forces
 
         return G * (upper_divition / lower_divition)
 
-    def coefficient_M(d_vec):#old function to make magntude
-
-        n = d_vec[0]
-        m = d_vec[1]
-        Cn = 0
-        Cm = 0
-
-
-        if n >= 0 and m >= 0:
-
-            Cn ,Cm = 1 ,-1
-        elif n <= 0 and m >= 0:
-
-            Cn ,Cm = -1 ,-1
-
-        elif n <= 0 and m <= 0:
-
-            Cn ,Cm = -1 ,1
-
-        elif n >= 0 and m <= 0:
-
-            Cn ,Cm = 1 ,1
-
-        
-        coefficient_M = [Cn ,Cm]
-
-        return coefficient_M
-
     def weight(g ,m):
         return g * m
 
