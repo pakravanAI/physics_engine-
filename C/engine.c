@@ -10,7 +10,7 @@ float pi = 3.1415926535;
 float e = 2.71828;
 
 
-
+// mathmatics
 int abs(float a){
     if(a >= 0){
         return a;
@@ -57,6 +57,7 @@ int angle(float x ,float y){
 }
 
 
+//mathmatics.vector
 int vec_add(int vec1[2] ,int vec2[2]){
     int output[2] = {0 ,0};
 
@@ -113,3 +114,29 @@ int dirction(int origin[2] ,int target[2]){
     return output;
 
 }
+
+
+//gravity
+
+int gravity_force(float distance ,float mass1 ,float mass2){
+    float g = 0;
+    float upper_div = 0;
+    float lower_div = 0;
+
+    upper_div = mass1 * mass2;
+    lower_div = pow(distance ,2);
+
+    g = G * (upper_div / lower_div);
+    return g;
+}
+
+
+int  gravity_weight(float g ,float m){
+    return g * m;
+}
+
+
+int  gravity_g(m ,r){
+    return m / (r * r);
+}
+
