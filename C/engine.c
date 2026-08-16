@@ -5,9 +5,9 @@
 #include <math.h>
 
 
-float G = 6.67430 * (10 ** -11)// gravetetional constant
-float pi = 3.1415926535// the cirdumfrence of a circle divided by its radias
-float e = 2.71828// eulrs number
+float G = 6.67430 * 0.000000000001;
+float pi = 3.1415926535;
+float e = 2.71828;
 
 
 
@@ -23,7 +23,7 @@ int abs(float a){
 
 
 int pythagorean_theorem(float a ,float b){
-    return sqrt(pow(a ,2) ,pow(b ,2));
+    return sqrt(a * a + b * b);
 }
 
 
@@ -80,8 +80,8 @@ int vec_minus(int vec1[2] ,int vec2[2]){
 int vec_times_R(int vec[2] ,float R){
     int output[2] = {0 ,0};
 
-    output[0] = vec1[0] * R;
-    output[1] = vec1[1] * R;
+    output[0] = vec[0] * R;
+    output[1] = vec[1] * R;
 
     return output;
 
@@ -90,8 +90,8 @@ int vec_times_R(int vec[2] ,float R){
 int vec_times_mat(int vec[2] ,int mat[2]){
     int output[2] = {0 ,0};
 
-    output[0] = vec1[0] * mat[0];
-    output[1] = vec1[1] * mat[1];
+    output[0] = vec[0] * mat[0];
+    output[1] = vec[1] * mat[1];
 
     return output;
 
@@ -107,6 +107,9 @@ int dirction(int origin[2] ,int target[2]){
     y = (target[1] - origin[1]);
 
     magntude = pythagorean_theorem(x ,y);
+    output[0] = x / magntude;
+    output[1] = y / magntude;
 
-    return {x / magntude ,y / magntude};
+    return output;
+
 }
