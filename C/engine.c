@@ -151,3 +151,29 @@ int V_vec(vx ,vy){
 float Momentum(float m ,float v){
     return m * v;
 }
+
+
+//object colistion
+
+bool sqr(float r ,float a ,float b ,float xpos ,float ypos ,float angle){
+    float x = 0;
+    float y = 0;
+    float rotatedx = 0;
+    float rotatedy = 0;
+    float theta = 0;
+
+    theta = deggres_to_rads(angle);
+
+    x = a - theta;
+    y = b - theta;
+
+    rotatedx = x * cos(theta) + y * sin(theta);
+    rotatedy = -x * sin(theta) + y * cos(theta);
+
+    if(-r / 2 < rotatedx && rotatedx < r / 2){
+        if(-r / 2 < rotatedy && rotatedy < r / 2){
+            return true;
+    }}
+    return false;
+
+}
