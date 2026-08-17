@@ -124,7 +124,7 @@ float  gravity_g(float m ,float r){
 
 // general force
 float vector_force(float vec[2]){
-    return abs(vec[0]) + abs(vec[1]);
+    return pythagorean_theorem(vec[0], vec[1]);
 }
 
 
