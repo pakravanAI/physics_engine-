@@ -227,7 +227,7 @@ class object_colistion():#object coltion used to detect movement
         return False
 
     
-
+'''
 
 
     class rotate_by_force():
@@ -285,3 +285,4 @@ class object_colistion():#object coltion used to detect movement
             
 
             
+'''
