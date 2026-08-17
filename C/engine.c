@@ -202,3 +202,14 @@ bool rect(float r1 ,float r2 ,float a ,float b ,float xpos ,float ypos ,float an
 
 }
 
+bool circle(float r, float a,float b,float xpos,float ypos){
+    float distance = 0;
+
+
+    distance = pow((pow((a - xpos), 2) + pow((b - ypos), 2)) ,0.5);
+
+    if (distance < r){
+        return true;
+    }
+    return false;
+}
