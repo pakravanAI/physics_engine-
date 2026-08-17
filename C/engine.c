@@ -177,3 +177,28 @@ bool sqr(float r ,float a ,float b ,float xpos ,float ypos ,float angle){
     return false;
 
 }
+
+
+bool rect(float r1 ,float r2 ,float a ,float b ,float xpos ,float ypos ,float angle){
+    float x = 0;
+    float y = 0;
+    float rotatedx = 0;
+    float rotatedy = 0;
+    float theta = 0;
+
+    theta = deggres_to_rads(angle);
+
+    x = a - theta;
+    y = b - theta;
+
+    rotatedx = x * cos(theta) + y * sin(theta);
+    rotatedy = -x * sin(theta) + y * cos(theta);
+
+    if(-r1 / 2 < rotatedx && rotatedx < r1 / 2){
+        if(-r2 / 2 < rotatedy && rotatedy < r2 / 2){
+            return true;
+    }}
+    return false;
+
+}
+
