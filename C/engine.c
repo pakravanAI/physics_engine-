@@ -1,4 +1,4 @@
-//hello i hope you have a good time with my (or bad i dont care)
+//hello i hope you have a good time with my code (or bad i dont care)
 //just do a deep dive in the functions down bellow if yuo want to build you own
 //sim with these tools we havw math vecs forces ect
 #include <stdio.h>
