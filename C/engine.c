@@ -168,8 +168,8 @@ bool sqr(float r ,float a ,float b ,float xpos ,float ypos ,float angle){
 
     theta = deggres_to_rads(angle);
 
-    x = a - theta;
-    y = b - theta;
+    x = a - xpos;
+    y = b - ypos;
 
     rotatedx = x * cos(theta) + y * sin(theta);
     rotatedy = -x * sin(theta) + y * cos(theta);
