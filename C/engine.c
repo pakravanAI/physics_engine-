@@ -5,7 +5,7 @@
 #include <math.h>
 #include <stdbool.h>
 
-float G = 6.67430 * 0.000000000001;
+const float G = 6.67430e-11f;
 float pi = 3.1415926535;
 float e = 2.71828;
 
@@ -85,10 +85,16 @@ void vec_times_mat(float vec[2], float mat[2], float output[2]){
 void dirction(float origin[2], float target[2], float output[2]){
     float x = target[0] - origin[0];
     float y = target[1] - origin[1];
-    float magntude = pythagorean_theorem(x, y);
+    float magnitude = pythagorean_theorem(x, y);
 
-    output[0] = x / magntude;
-    output[1] = y / magntude;
+    if(magnitude == 0){
+        output[0] = 0;
+        output[1] = 0;
+        return;
+    }
+
+    output[0] = x / magnitude;
+    output[1] = y / magnitude;
 }
 
 
@@ -112,12 +118,12 @@ float  gravity_weight(float g ,float m){
 }
 
 
-float  gravity_g(m ,r){
+float  gravity_g(float m ,float r){
     return m / (r * r);
 }
 
 // general force
-float vector_force(int vec[2]){
+float vector_force(float vec[2]){
     return abs(vec[0]) + abs(vec[1]);
 }
 
@@ -142,16 +148,14 @@ float acceleration(float F ,float m){
 }
 
 
-int V_vec(vx ,vy){
-    int V_vec_[2] = {0 ,0};
-
-    return V_vec_;
+void V_vec(float vx, float vy, float output[2]){
+    output[0] = vx;
+    output[1] = vy;
 }
 
 float Momentum(float m ,float v){
     return m * v;
 }
-
 
 //object colistion
 
@@ -188,8 +192,8 @@ bool rect(float r1 ,float r2 ,float a ,float b ,float xpos ,float ypos ,float an
 
     theta = deggres_to_rads(angle);
 
-    x = a - theta;
-    y = b - theta;
+    x = a - xpos;
+    y = b - ypos;
 
     rotatedx = x * cos(theta) + y * sin(theta);
     rotatedy = -x * sin(theta) + y * cos(theta);
@@ -201,6 +205,7 @@ bool rect(float r1 ,float r2 ,float a ,float b ,float xpos ,float ypos ,float an
     return false;
 
 }
+
 
 bool circle(float r, float a,float b,float xpos,float ypos){
     float distance = 0;
