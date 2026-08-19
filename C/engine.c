@@ -124,7 +124,7 @@ float  gravity_g(float m ,float r){
 
 // general force
 float vector_force(float vec[2]){
-    return pythagorean_theorem(vec[0], vec[1]);
+    return abs(vec[0]) + abs(vec[1]);
 }
 
 
@@ -168,8 +168,8 @@ bool sqr(float r ,float a ,float b ,float xpos ,float ypos ,float angle){
 
     theta = deggres_to_rads(angle);
 
-    x = a - xpos;
-    y = b - ypos;
+    x = a - theta;
+    y = b - theta;
 
     rotatedx = x * cos(theta) + y * sin(theta);
     rotatedy = -x * sin(theta) + y * cos(theta);
