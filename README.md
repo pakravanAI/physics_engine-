@@ -1,4 +1,6 @@
 # Graviton
+> **_Make your own univearse_**
+
 This is a gravity centered physics engine to use for your next project
 
 We have a Python prototype which can be used in Python projects, but the main project is in C
@@ -9,3 +11,4 @@ engine it self is split into sectors of gravity ,general force ,movement and mat
 
 
 requirements: computer or pen and paper ,matplotlib ,python ,C ,raylib ,brilliant brain like mine(something stupider will also do it but you need to vibe your way out of it)
+
