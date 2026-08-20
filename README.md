@@ -1,5 +1,8 @@
-# Graviton
-> **_Make your own univearse_**
+<h1 align="center">Graviton</h1>
+
+<p align="center">
+**_Make your own universe_**
+</p>
 
 This is a gravity centered physics engine to use for your next project
 
