@@ -2,6 +2,7 @@
 just do a deep dive in the functions down bellow if yuo want to build you own
 sim with these tools we havw math vecs forces ect ''' 
 from math import sin , cos , atan2 , sqrt
+import math
 
 #daclering the constants
 G = 6.67430 * (10 ** -11)#gravetetional constant
